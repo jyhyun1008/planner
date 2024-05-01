@@ -1,0 +1,406 @@
+@font-face {
+    font-family: 'GyeonggiTitleM';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GyeonggiTitleM.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'ONE-Mobile-POP';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-POP.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --accent: #000000;
+}
+
+body {
+    font-family: 'ONE-Mobile-POP';
+    color: darkslateblue;
+    background-color: var(--accent);
+    overscroll-behavior: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+#background{
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: 100vw 100dvh;
+    opacity: 70%;
+    margin: 0;
+    overscroll-behavior: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+h1 {
+    margin-top: 0;
+    padding-top: 10px;
+    text-align: center;
+}
+
+#time-content h1, #project-content h1 {
+    font-size: 1.6em;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+#title-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    width: 100vw;
+    background: linear-gradient(90deg, var(--accent), var(--darkaccent));
+    color: white;
+}
+
+.nav-box {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-list i {
+    font-size: 1.2rem;
+}
+
+.nav-list span {
+    display: none;
+}
+
+.nav-list:hover i {
+    display: none;
+}
+
+.nav-list:hover span {
+    display: inline;
+}
+
+#title {
+    margin-bottom: 0;
+    margin-top: 10px;
+    text-align: left;
+}
+
+#title a {
+    text-decoration: none;
+    color: inherit;
+}
+
+#planner-box {
+    margin: 120px auto 30px auto;
+    max-height: calc(100dvh - 150px);
+    height: calc(100dvh - 150px);
+    width: 100%;
+    display: flex;
+    background-color: var(--opacityaccent);
+    border-radius: 20px;
+}
+
+#time-content, #viewer-content, #project-content {
+    padding: 10px;
+    overflow-y: scroll;
+    line-height: 1.7em;
+}
+
+#time-content, #project-content {
+    width: 25%;
+    max-width: 300px;
+}
+
+#time-content > div, #viewer-content > div, #project-content > div {
+    background: #ffffff55;
+    border-radius: 15px;
+    height: calc(100% - 20px);
+    padding: 10px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+#viewer-content > div, #project-content > div {
+    overflow-y: scroll !important;
+}
+
+.timelinebox {
+    height: calc(100% - 2em - 20px);
+    overflow-y: scroll;
+}
+
+#viewer-content {
+    min-width: 50%;
+    width: calc(100% - 600px);
+}
+
+#time-content {
+    display: flex;
+    gap: 12px;
+    flex-direction: column;
+    max-height: calc(100dvh - 160px);
+}
+
+#calendar-content {
+    height: 280px !important;
+    width: calc(100% - 20px);
+    aspect-ratio: 1 / 1 !important;
+    line-height: 1em;
+}
+
+#timeline-content {
+    height: calc(100% - 300px) !important;
+    overflow-y: scroll;
+}
+
+#about {
+    position: absolute;
+    background-color: var(--darkaccent);
+    color: white;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    text-align: center;
+    padding-bottom: 4px;
+    padding: 0;
+    margin: 0;
+}
+
+span.bold {
+    max-height: 1.2em;
+    display: inline-flex;
+    min-width: 100px;
+    font-weight: 500;
+    padding: 5px;
+    background-color: var(--lightaccent);
+    border: 1px solid var(--darkaccent);
+    border-radius: 20px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+div.bold {
+    font-weight: 500;
+    padding: 5px;
+    background-color: var(--lightaccent);
+    border: 1px solid var(--darkaccent);
+    border-radius: 20px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+input {
+    font-family: 'ONE-Mobile-POP';
+    transform: translate(0, -1px);
+    height: 1.8em;
+    border-radius: 20px;
+    border: 1px solid var(--darkaccent);
+}
+
+#viewer-content input {
+    width: calc(100% - 100px);
+}
+
+.yearInput {
+    margin-bottom: 10px;
+}
+
+ul {
+    padding-inline-start: 20px;
+}
+
+.bx {
+    transform: translate(0, 8px);
+    font-size: 2em;
+}
+
+.confirm {
+    margin-top: 50px;
+}
+
+#yearAndMonthText {
+    display: flex;
+    justify-content: space-between;
+}
+
+#yearAndMonthText input {
+    width: 50px;
+    flex-grow: 1;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+  
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    /* 
+    grid-template-columns : CSS의 Grid 레이아웃에서 사용되는 속성(property) 중 하나로, 
+    그리드 컨테이너(grid container)의 열(column) 크기를 지정하는 것을 말한다.
+    repeat(7, 1fr) : 1행에 7개의 열이 있으며, 
+    각 열의 크기를 동일하게 1분의 1(fractional unit, fr)로 설정하라는 의미한다. */
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+  /* grid-template-columns 속성을 사용하여 그리드 컨테이너의 열 크기를 유연하게 조정할 수 있으며, 
+  반응형 웹 디자인에서 유용하게 활용된다. 
+  이렇게 함으로써 웹페이지의 레이아웃을 다양한 화면 크기와 장치에 맞추는데 도움이 된다. */
+  
+.day {
+    padding: 5px;
+    text-align: center;
+}
+
+.date {
+    text-align: center;
+}
+  
+.calendar-dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 5px;
+}
+
+.projectsname {
+    display: flex;
+    width: 100%;
+    background-color: var(--darkaccent);
+    color: white;
+    text-align: center;
+    height: 1.7rem;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.projectscategory {
+    display: flex;
+    width: 100%;
+    color: var(--darkaccent);
+    text-align: center;
+    height: 1.7rem;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--lightaccent) !important;
+    border: 1px solid var(--darkaccent);
+}
+
+#focused .overflowed-list {
+    width: 100%;
+    overflow-y: scroll;
+    margin-bottom: 10px;
+}
+
+
+#focused .list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#focused .list .ptitle {
+    height: 100px;
+    aspect-ratio: 16 / 9;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-shadow: 1px 1px var(--darkaccent), -1px -1px var(--darkaccent), -1px 1px var(--darkaccent), 1px -1px var(--darkaccent);
+}
+
+.projectsitem {
+    text-align: center;
+}
+
+img {
+    max-width: calc(100%);
+    max-height: 70dvh;
+    aspect-ratio: 16 / 9; 
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.new{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 20px;
+    border: 1px solid var(--accent);
+}
+
+.projectsitem.new{
+    background-color: var(--opacityaccent);
+    border: 0 !important;
+}
+
+.new .bx {
+    font-size: 50px;
+    border-radius: 20px;
+}
+
+.ptitle, .psummary {
+    min-height: 1.7rem;
+}
+
+code {
+    font-family: 'ONE-Mobile-POP';
+    font-size: 0.8em;
+    padding: 3px;
+    border-radius: 10px;
+    background-color: var(--bgaccent);
+}
+
+code .category, code .goal {
+    font-size: 1.2em !important;
+}
+
+.timetables {
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+
+.timetables > .fullTime {
+    border-radius: 20px;
+    display: flex;
+    gap: 5px;
+}
+
+#controller {
+    display: flex;
+}
+
+#controller > * {
+    flex-grow: 1;
+}
+
+.nothingHere {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6em;
+    line-height: 2.3em;;
+}

@@ -1,2 +1,3 @@
 # planner
-temporary repo of project planner
+
+그... '모든 것이 되는 법' 이란 책을 아시나요 그것에 기초해서 만들고 있는 플래너입니다....
