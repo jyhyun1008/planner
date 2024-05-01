@@ -6,7 +6,7 @@ async function checkboxOnOff(e, title, type, i) {
             e.classList.remove("bx-checkbox")
             e.classList.add("bx-checkbox-square")
             if (type == 'todo') {
-                for (var j=0; i<plannerjson.today.todo.length; j++) {
+                for (var j=0; j<plannerjson.today.todo.length; j++) {
                     if (plannerjson.today.todo[j].title == title) {
                         plannerjson.today.todo[j].done == true
                         localStorage.setItem('plannerjson', JSON.stringify(plannerjson))
@@ -151,9 +151,7 @@ async function loadMainPage(json, DATE) {
                 realTodo[newTodo[i].goal[k].split(',')[0]].push(newTodo[i])
             }
         } else {
-            for (var k=0; k<json.reminder[newTodo[i].goal].length;k++){
-                realTodo[json.reminder[newTodo[i].goal[k]]].push(newTodo[i])
-            }
+            realTodo[json.reminder[newTodo[i].goal].goal[0].split(',')[0]].push(newTodo[i])
         }
     }
 
@@ -179,8 +177,8 @@ async function loadMainPage(json, DATE) {
                         document.querySelector('#todo'+i+'-'+j+' .code').innerHTML += '<code>'+json.projects[realTodo[i][j].goal[k].split(',')[0]].title+' - '+json.projects[realTodo[i][j].goal[k].split(',')[0]].goal[realTodo[i][j].goal[k].split(',')[1]].title+'</code> '
                     }
                 } else {
-                    for (var k=0; k < today.reminder[i][realTodo[i][j].goal].goal.length; k++) {
-                        document.querySelector('#todo'+i+'-'+j+' .code').innerHTML += '<code>'+json.projects[today.reminder[i][realTodo[i][j].goal].goal[k].split(',')[0]].title+' - '+json.projects[today.reminder[i][realTodo[i][j].goal].goal[k].split(',')[0]].goal[today.reminder[i][realTodo[i][j].goal].goal[k].split(',')[1]].title+'</code> '
+                    for (var k=0; k < json.reminder[realTodo[i][j].goal].goal.length; k++) {
+                        document.querySelector('#todo'+i+'-'+j+' .code').innerHTML += '<code>'+json.projects[json.reminder[realTodo[i][j].goal].goal[k].split(',')[0]].title+' - '+json.projects[json.reminder[realTodo[i][j].goal].goal[k].split(',')[0]].goal[json.reminder[realTodo[i][j].goal].goal[k].split(',')[1]].title+'</code> '
                     }
                 }
                 if (realTodo[i][j].time != '') {
