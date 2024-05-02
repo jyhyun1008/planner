@@ -84,10 +84,7 @@ async function updateJSON(json, jsonPageId) {
             }]
         })
     }
-    var data = await fetch(url, param)
-    var result = await data.json()
-    
-    return result
+    await fetch(url, param)
 }
 
 async function createNote(text, title, visibility='specified') {
