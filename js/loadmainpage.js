@@ -8,7 +8,7 @@ async function checkboxOnOff(e, title, type, i) {
             if (type == 'todo') {
                 for (var j=0; j<plannerjson.today.todo.length; j++) {
                     if (plannerjson.today.todo[j].title == title) {
-                        plannerjson.today.todo[j].done == true
+                        plannerjson.today.todo[j].done = true
                         localStorage.setItem('plannerjson', JSON.stringify(plannerjson))
                     }
                 }
@@ -35,6 +35,7 @@ async function checkboxOnOff(e, title, type, i) {
                     }
                 }
             }
+            console.log(plannerjson)
             await createNote('`'+JSON.stringify(plannerjson.today)+'`', '오늘의 할일 '+title+'을(를) 완료했습니다.')
             await updateJSON(plannerjson, jsonInfoUrl)
             location.href = location.href
@@ -42,7 +43,7 @@ async function checkboxOnOff(e, title, type, i) {
             e.classList.remove("bx-checkbox-square")
             e.classList.add("bx-checkbox")
             if (type == 'todo') {
-                for (var j=0; i<plannerjson.today.todo.length; j++) {
+                for (var j=0; j<plannerjson.today.todo.length; j++) {
                     if (plannerjson.today.todo[j].title == title) {
                         plannerjson.today.todo[j].done == false
                         localStorage.setItem('plannerjson', JSON.stringify(plannerjson))
@@ -214,11 +215,11 @@ function nothingHere() {
     document.querySelector('#viewer-content').innerHTML = '<div class="nothingHere"><div>이곳은 @'+MISSKEYUSER+'@'+MISSKEYHOST+' 의 작은 메모장입니다.</div><div>내용을 보시려면 로그인하셔야 해요.</div></div>'
 }
 
-if (!isLogin) {
+if (!!isLogin) {
     nothingHere()
 }
 
-if (isLogin) {
+if (!isLogin) {
     if (!page && !note && !mode) {
         loadBackground(plannerjson)
     
