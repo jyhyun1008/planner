@@ -36,7 +36,7 @@ async function checkboxOnOff(e, title, type, i) {
                 }
             }
             await createNote('`'+JSON.stringify(plannerjson.today)+'`', '오늘의 할일 '+title+'을(를) 완료했습니다.')
-            await updateJSON(plannerjson, jsonInfoUrl)
+            await updateJSON(plannerjson, misskeyJsonId)
             location.href = location.href
         } else if (cList.includes('bx-checkbox-square')) {
             e.classList.remove("bx-checkbox-square")
@@ -72,7 +72,7 @@ async function checkboxOnOff(e, title, type, i) {
                 }
             }
             await createNote('`'+JSON.stringify(plannerjson.today)+'`', '오늘 한 일 '+title+'을(를) 취소했습니다.')
-            await updateJSON(plannerjson, jsonInfoUrl)
+            await updateJSON(plannerjson, misskeyJsonId)
             location.href = location.href
         }
     }
