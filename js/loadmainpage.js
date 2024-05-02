@@ -35,7 +35,6 @@ async function checkboxOnOff(e, title, type, i) {
                     }
                 }
             }
-            console.log(plannerjson)
             await createNote('`'+JSON.stringify(plannerjson.today)+'`', '오늘의 할일 '+title+'을(를) 완료했습니다.')
             await updateJSON(plannerjson, jsonInfoUrl)
             location.href = location.href

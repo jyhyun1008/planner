@@ -1,4 +1,7 @@
 var jsonInfoUrl
+if (localStorage.getItem('jsonInfoUrl')) {
+    jsonInfoUrl = localStorage.getItem('jsonInfoUrl')
+}
 
 if (page == 'signin') {
     if (!isLogin) {
@@ -77,9 +80,9 @@ if (page == 'signin') {
                         fetch(createPageUrl, createPageParam)
                         .then((pageData) => {return pageData.json()})
                         .then((pageRes) => {
-                            jsonPageId = pageRes.id
+                            jsonInfoUrl = pageRes.id
                             localStorage.setItem('json', jsonInitial)
-                            localStorage.setItem('jsonPageId', jsonPageId)
+                            localStorage.setItem('jsonInfoUrl', jsonPageId)
                             var createNoteUrl = 'https://'+MISSKEYHOST+'/api/notes/create'
                             var createNoteParam = {
                                 method: 'POST',
@@ -103,7 +106,7 @@ if (page == 'signin') {
                         const MISSKEYSETUPID = infoRes[0].id
                         const MISSKEYJSONID = infoRes[0].text.split('`')[1]
                         jsonInfoUrl = MISSKEYJSONID
-                        localStorage.setItem('jsonPageId', MISSKEYJSONID)
+                        localStorage.setItem('jsonInfoUrl', jsonInfoUrl)
 
                         var jsonInfoUrl = 'https://'+MISSKEYHOST+'/api/pages/show'
                         var jsonInfoParam = {
