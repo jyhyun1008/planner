@@ -201,7 +201,7 @@ async function loadEditPage(json, DATE) {
     })
 }
 
-if (!isLogin) {
+if (isLogin) {
     if (!page && !note && mode == 'edit') {
         loadBackground(plannerjson)
 

@@ -215,11 +215,11 @@ function nothingHere() {
     document.querySelector('#viewer-content').innerHTML = '<div class="nothingHere"><div>이곳은 @'+MISSKEYUSER+'@'+MISSKEYHOST+' 의 작은 메모장입니다.</div><div>내용을 보시려면 로그인하셔야 해요.</div></div>'
 }
 
-if (!!isLogin) {
+if (!isLogin) {
     nothingHere()
 }
 
-if (!isLogin) {
+if (isLogin) {
     if (!page && !note && !mode) {
         loadBackground(plannerjson)
     
